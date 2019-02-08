@@ -1,12 +1,10 @@
-var data = d3.csv('TableauOutPut\\Part1-NumberOfIncidents.csv', function(data){
-  let days = +data.Date;
-  //console.log(days);
-  let incidents = +data.Incidents;
+var DrawBarChart = function(){
+  let day = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
   let countMin = 0;
   //Maximum number of incidents
   let countMax = 453;
   //console.log("Count bounds: " +[countMin, countMax]);
-  let svg = d3.select("body").select("section.sections").select("div").select("svg");
+  let svg = d3.select("body").select("section:nth-child(2)").select("div").select("svg");
   let margin = {
     top:    15,
     right:  35, // leave space for y-axis
@@ -16,12 +14,15 @@ var data = d3.csv('TableauOutPut\\Part1-NumberOfIncidents.csv', function(data){
     let bounds = svg.node().getBoundingClientRect();
     let plotWidth = bounds.width - margin.right - margin.left;
     let plotHeight = bounds.height - margin.top - margin.bottom;
-    let countScale = d3.scaleLinear()
+    //Scalling the number of incidents as yAxis
+    let incidentScale = d3.scaleLinear()
         .domain([countMin, countMax])
         .range([plotHeight, 0])
         .nice();
+
+    //Scalling number of days of a month as xAxis
     let monthScale = d3.scaleBand()
-        .domain(days) // all letters (not using the count here)
+        .domain(day) // all letters (not using the count here)
         .rangeRound([0, plotWidth])
         .paddingInner(0.1); // space between bars
 
@@ -39,29 +40,96 @@ var data = d3.csv('TableauOutPut\\Part1-NumberOfIncidents.csv', function(data){
         plot.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       }
 
- });
- // var maxData = d3.max(data.incidents.values());
- // console.log("MAx: " + maxData);
-//.row(function(d) { return {date:Number(d.date1), day:d.day1, rank:Number(d.rank1), incident:Number(d.incidents1) };})
-//.get(function(error, data){
+    let xAxis = d3.axisBottom(monthScale);
+    let yAxis = d3.axisRight(incidentScale);
 
- // var newDate = d3.csv('TableauOutPut\\Part1-NumberOfIncidents.csv')
- // .then((data) => {
- //   data.forEach(d => {
- //     console.log("the data object is: " + d)
- //   })
- //   return data;
- // });
- //
- // var day="Day of Incident Date";
- // console.log("data is " + data);
- // d3.csv("TableauOutPut\\Part1-NumberOfIncidents.csv", function(d) {
- //   return {
- //     Date: +d.Date, // convert "Date" column to Date
- //     Day: d.Day,
- //     Rank: +d.Rank,
- //     Incidents: +d.Incidents // convert "Incidents" column to number
- //   }
- // }, function(data) {
- //   console.log(data.Day);
- // });
+    if (plot.select("g#y-axis").size() < 1) {
+    let xGroup = plot.append("g").attr("id", "x-axis");
+
+    // the drawing is triggered by call()
+    xGroup.call(xAxis);
+
+    // notice it is at the top of our svg
+    // we need to translate/shift it down to the bottom
+    xGroup.attr("transform", "translate(0," + plotHeight + ")");
+
+    // do the same for our y axix
+    let yGroup = plot.append("g").attr("id", "y-axis");
+    yGroup.call(yAxis);
+    //yGroup.attr("transform", "translate(" + plotWidth + ",0)");
+  }
+  else {
+    // we need to do this so our chart updates
+    // as we type new letters in our box
+    plot.select("g#y-axis").call(yAxis);
+}
+incidents = [391,343,417,396,415,376,449,410,410,369,353,402,383,410,390,306,408,430
+  ,447,453,395,420,429,374,259,387,416,432,408,380,393];
+  var color = d3.scaleLinear()
+  .domain([259, 453])
+  .range(["#fff6f7", "#ae1c25"]);
+
+    plot.selectAll("rect")
+    .data(incidents)
+    .enter().append("rect")
+        // we will style using css
+        .attr("class", "bar")
+        // the width of our bar is determined by our band scale
+        .attr("width", monthScale.bandwidth())
+        // we must now map our letter to an x pixel position
+        .attr("x", function(d, i) {
+          return monthScale(day[i]);
+        })
+        // and do something similar for our y pixel position
+        .attr("y", function(d, i) {
+          return incidentScale(incidents[i]);
+        })
+        // here it gets weird again, how do we set the bar height?
+        .attr("height", function(d, i) {
+          return plotHeight - incidentScale(incidents[i]);
+        })
+        .attr("fill",function(d, i) {return color(incidents[i]);})
+
+        // .each(function(d, i, nodes) {
+        //   console.log("Added bar for:", d);
+        // });
+
+};
+
+
+//Loading Data from local csv.fiel
+var LoadingData = function(){
+convertRow = function(row, index){
+  let out = {};
+  for (let col in row){
+    switch (col) {
+      case "Day":
+       out[col] = row[col];
+       outputObj.days.push(row[col]);
+       break;
+      case "Date":
+      out[col] = parseInt(row[col]);
+      outputObj.dates.push(row[col]);
+      break;
+      case "Rank":
+      out[col] = parseInt(row[col]);
+      outputObj.ranks.push(row[col]);
+      break;
+      case "Incidents":
+      out[col] = parseInt(row[col]);
+      outputObj.incidents.push(row[col]);
+      break;
+    }
+  }
+  return out;
+}
+ d3.csv("TableauOutPut\\Part1-NumberOfIncidents.csv", convertRow);
+}
+var outputObj = {
+  days:[],
+  dates:[],
+  ranks:[],
+  incidents:[],
+}
+LoadingData();
+DrawBarChart();

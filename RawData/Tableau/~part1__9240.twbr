@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20183.18.1219.1533                               -->
+<workbook source-build='2018.3.2 (20183.18.1219.1533)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Part1' inline='true' name='federated.0jze1pe1y8wwjq17w4zbr1sm3rar' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Part1' name='textscan.10np6q00064ygt1acwh7x0oie3bf'>
+            <connection class='textscan' directory='C:/Users/Masoud/OneDrive/Data Science/Data Viz/HomeWork1/RawData' filename='Part1.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.10np6q00064ygt1acwh7x0oie3bf' name='Part1.csv' table='[Part1#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Incident Day of Week' ordinal='0' />
+            <column datatype='integer' name='Incident Number' ordinal='1' />
+            <column datatype='date' name='Incident Date' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Part1.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Incident Day of Week</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Incident Day of Week]</local-name>
+            <parent-name>[Part1.csv]</parent-name>
+            <remote-alias>Incident Day of Week</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Incident Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Incident Number]</local-name>
+            <parent-name>[Part1.csv]</parent-name>
+            <remote-alias>Incident Number</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Incident Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Incident Date]</local-name>
+            <parent-name>[Part1.csv]</parent-name>
+            <remote-alias>Incident Date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.500791' measure-ordering='alphabetic' measure-percentage='0.499209' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Date/Day/Incident Number</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Part1' name='federated.0jze1pe1y8wwjq17w4zbr1sm3rar' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jze1pe1y8wwjq17w4zbr1sm3rar'>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Incident Day of Week]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Incident Number]' role='measure' type='quantitative' />
+            <column-instance column='[Incident Day of Week]' derivation='Attribute' name='[attr:Incident Day of Week:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Incident Date]' derivation='Day' name='[dy:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Incident Number]' derivation='Sum' name='[rank:sum:Incident Number:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' rank-options='Competition,Descending' type='Rank' />
+            </column-instance>
+            <column-instance column='[Incident Number]' derivation='Sum' name='[sum:Incident Number:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' field-type='quantitative' max='537' min='-3' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[dy:Incident Date:ok]' value='61' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' num-steps='10' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#ead6d7</color>
+                <color>#e3bdbf</color>
+                <color>#dca5a8</color>
+                <color>#d68e92</color>
+                <color>#cf787d</color>
+                <color>#c86369</color>
+                <color>#c25057</color>
+                <color>#bb3d45</color>
+                <color>#b42c34</color>
+                <color>#ae1c25</color>
+              </color-palette>
+            </encoding>
+            <encoding attr='color' field='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[rank:sum:Incident Number:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#ead6d7</color>
+                <color>#e3bdbf</color>
+                <color>#dca5a8</color>
+                <color>#d68e92</color>
+                <color>#cf787d</color>
+                <color>#c86369</color>
+                <color>#c25057</color>
+                <color>#bb3d45</color>
+                <color>#b42c34</color>
+                <color>#ae1c25</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' />
+              <lod column='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[rank:sum:Incident Number:qk]' />
+              <text column='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[attr:Incident Day of Week:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-pane' value-column='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]</rows>
+        <cols>[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[dy:Incident Date:ok]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows pres-mode='true' source-height='44'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='0' param='[federated.0jze1pe1y8wwjq17w4zbr1sm3rar].[sum:Incident Number:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{53AB0D13-E901-45D0-AE01-91A20CAD8D79}' />
+    </window>
+  </windows>
+</workbook>
