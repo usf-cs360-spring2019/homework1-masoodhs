@@ -82,7 +82,7 @@
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.500791' measure-ordering='alphabetic' measure-percentage='0.499209' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.50047' measure-ordering='alphabetic' measure-percentage='0.499531' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -184,7 +184,7 @@
       </table>
     </worksheet>
   </worksheets>
-  <windows pres-mode='true' source-height='44'>
+  <windows source-height='44'>
     <window class='worksheet' maximized='true' name='Sheet 1'>
       <cards>
         <edge name='left'>
