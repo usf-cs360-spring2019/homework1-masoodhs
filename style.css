@@ -1,13 +1,13 @@
 body{
-  background: #C8D1E6;
+  background: #7FDBFF;
   font : white;
 }
 #header{
-    background: #8590aa;
+    background: #DDDDDD;
     font-family: monospace;
     font-size: x-large;
     font-style: italic;
-    color: white;
+    color: black;
 }
 /* navbar items hover style */
 .hero.is-primary .navbar-link.is-active,
@@ -24,7 +24,7 @@ body{
 background-color: : black;
 }
 #header > div.hero-body{
-  background-color: #314455;
+  background-color: #001f3f;
 }
 .section {
     display: block;
@@ -32,7 +32,7 @@ background-color: : black;
     font-size: larger;
 }
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-  color: #a18f00;
+  color: #fff;
   font-family: monospace;
 }
 .fa-linkedin:before {
