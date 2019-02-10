@@ -35,3 +35,11 @@ background-color: : black;
   color: #a18f00;
   font-family: monospace;
 }
+.fa-linkedin:before {
+    content: "\f08c";
+    color: darkmagenta;
+}
+.fa-github:before {
+    content: "\f09b";
+    color: darkcyan;
+}
