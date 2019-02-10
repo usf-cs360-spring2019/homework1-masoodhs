@@ -1,0 +1,37 @@
+body{
+  background: #C8D1E6;
+  font : white;
+}
+#header{
+    background: #8590aa;
+    font-family: monospace;
+    font-size: x-large;
+    font-style: italic;
+    color: white;
+}
+/* navbar items hover style */
+.hero.is-primary .navbar-link.is-active,
+ .hero.is-primary .navbar-link:hover,
+ .hero.is-primary a.navbar-item.is-active,
+ .hero.is-primary a.navbar-item:hover{
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #D2D233;
+background-color: : black;
+}
+#header > div.hero-body{
+  background-color: #314455;
+}
+.section {
+    display: block;
+    color: black;
+    font-size: larger;
+}
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  color: #a18f00;
+  font-family: monospace;
+}

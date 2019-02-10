@@ -1,0 +1,71 @@
+Incident Number,Incident Subcategory
+1,Robbery - Residential
+1,Rape
+1,Bad Checks
+1,Gambling
+2,Larceny - Auto Parts
+3,Larceny Theft - Purse Snatch
+3,"Sex Offense, Child"
+3,Stalking
+4,Suicide
+5,Homicide
+5,Runaway
+6,Motor Vehicle Theft (Attempted)
+6,Suspicious Package
+6,Robbery - Carjacking
+7,Extortion-Blackmail
+8,Traffic Collision
+8,Vehicle Impounded
+9,Vehicle Misplaced
+10,Liquor Law Violation
+11,Fire Report
+11,Traffic Collision - Hit & Run
+14,Embezzlement
+16,Kidnapping
+16,Sex Offense
+17,Disorderly Conduct
+20,Prostitution
+20,Larceny Theft - Bicycle
+25,Courtesy Report
+27,Arson
+28,Loitering
+30,Case Closure
+34,Child Abuse
+36,Drunkenness
+55,Other Offenses
+56,Forgery And Counterfeiting
+57,Missing Juvenile
+60,Burglary - Commercial
+64,Larceny Theft - Pickpocket
+64,Stolen Property
+75,Burglary - Hot Prowl
+76,Family Offenses
+77,Robbery - Commercial
+85,Robbery - Street
+89,Miscellaneous Investigation
+112,Trespass
+114,Weapons Offense
+123,Missing Adult
+129,Theft From Vehicle
+131,Intimidation
+135,Missing Person
+165,Traffic Violation Arrest
+177,Burglary - Residential
+193,Burglary - Other
+195,Robbery - Other
+213,Larceny Theft - Shoplifting
+215,Warrant
+223,Suspicious Occ
+240,Larceny Theft - From Building
+252,Aggravated Assault
+274,Drug Violation
+355,Recovered Vehicle
+358,Fraud
+397,Non-Criminal
+448,Motor Vehicle Theft
+471,Lost Property
+476,Simple Assault
+673,Vandalism
+985,Larceny Theft - Other
+1689,Other
+2372,Larceny - From Vehicle
