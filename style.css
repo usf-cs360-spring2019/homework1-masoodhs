@@ -43,3 +43,9 @@ background-color: : black;
     content: "\f09b";
     color: darkcyan;
 }
+path:hover {
+  fill:purple;
+}
+rect:hover{
+  fill:yellow;
+}

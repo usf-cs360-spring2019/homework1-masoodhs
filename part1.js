@@ -5,6 +5,7 @@ let outputObj = {
   incidents:[],
 }
 //Loading Data from local csv.fiel
+
 var LoadingData = function(){
 convertRow = function(row, index){
   let out = {};
@@ -128,7 +129,7 @@ var DrawBarChart = function(){
           return plotHeight - incidentScale(outputObj.incidents[i]);
         })
         .attr("fill",function(d, i) {return color(outputObj.incidents[i]);
-        });
+        })
         outputObj.days = outputObj.days.reverse();
         for(let j = 0; j < 31; j++){
         svg.append("text")
@@ -151,8 +152,5 @@ var DrawBarChart = function(){
         // .each(function(d, i, nodes) {
         //   console.log("Added bar for:", d);
         // });
-
 };
-
 LoadingData();
-// DrawBarChart();

@@ -120,7 +120,20 @@ outputObj2.incidents = outputObj2.incidents.reverse();
           return timeScale.bandwidth();
         })
         .attr("fill",function(d, i) {return color(outputObj2.incidents[i]);
-        })
+        }).on("mouseover", function(d, i) {
+        svg.append("text")
+          .attr("dy", ".5em")
+          .style('font-familly', 'Arial')
+          .attr('x', 900)
+          .attr('y', 100)
+          .style('font-size', 22)
+          .attr("class","label")
+          .style("fill", "purple")
+          .text("Incidents: " +outputObj2.incidents[i]);
+    })
+    .on("mouseout", function(d) {
+      svg.select(".label").remove();
+    })
 for (let i =0; i < 45; i++){
         svg.append("line")
         .attr('x1',function(d){
