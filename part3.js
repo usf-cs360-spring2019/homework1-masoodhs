@@ -57,9 +57,10 @@ var arcData = d3.pie().sort(null).value(function(d){
   return d;
 })(output3.percent);
 
+
 var colorScale = d3.scaleOrdinal()
-                .domain(0, arcData)
-                .range(["#E1222B", "#F87033", "#FCA229", "#FAD23C", "#378A3E", "#5CD1C9", "#BAC8E5" ]);
+    .domain(0, arcData)
+    .range(["#E1222B", "#F87033", "#FCA229", "#FAD23C", "#378A3E", "#5CD1C9", "#BAC8E5" ]);
 names = output3.incident;
 
 
