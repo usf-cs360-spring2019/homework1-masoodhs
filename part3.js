@@ -94,15 +94,15 @@ names = output3.incident;
          g1.selectAll('.label1').append("text")
          .attr("transform", function(d, i) {
      var d = arc.centroid(d);
-     d[0] *= 1.6;	//multiply by a constant factor
-     d[1] *= 1.6;	//multiply by a constant factor
+     d[0] *= 1.4;	//multiply by a constant factor
+     d[1] *= 1.4;	//multiply by a constant factor
      return "translate(" + d + ")";
    })
             .attr('text-anchor', 'middle')
             .style('font-familly', 'Arial')
-            .style('font-size', 10)
+            .style('font-size', 14)
             .style("fill", "black")
-            .text(function(d, i){return output3.incident[i] + " " + output3.percent[i] + "%";});
+            .text(function(d, i){return output3.percent[i] + "%";});
 function handleMouseOver(d, i) {
                d3.select(this).attr({
                  fill: "black",
@@ -114,7 +114,7 @@ g2.append("text")
 .text("Incident Category")
 .attr('x', '980')
 .attr('y', '15')
-.attr('font-size', '10')
+.attr('font-size', 16)
 .attr('font-weight', 'bold')
 
 for(let j =0; j< 7; j++){
@@ -130,7 +130,7 @@ g2.append("text")
 .text(function(d){
   return output3.incident[j];
 }).style('font-familly', 'Arial')
-.style('font-size', 10)
+.style('font-size', 14)
 .style("fill", "black")
 .attr('x', '998')
 .attr('y', function(d){
