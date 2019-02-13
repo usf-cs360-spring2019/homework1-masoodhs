@@ -19,7 +19,7 @@ convertRow = function(row, index){
   }
   return out;
 }
-d3.csv("TableauOutPut\\Part3-TopCriminalIncidents.csv", convertRow)
+d3.csv("TableauOutPut\\Part3-final-TopCrimanlIncidetns.csv", convertRow)
 .then(() => {
 DrawBarChart3();
 });
@@ -60,7 +60,7 @@ var arcData = d3.pie().sort(null).value(function(d){
 
 var colorScale = d3.scaleOrdinal()
     .domain(0, arcData)
-    .range(["#E1222B", "#F87033", "#FCA229", "#FAD23C", "#378A3E", "#5CD1C9", "#BAC8E5" ]);
+    .range(["#E1222B", "#5CD1C9", "#FCA229","#378A3E" , "#FAD23C", "#F87033", "#BAC8E5" ]);
 names = output3.incident;
 
 
@@ -78,8 +78,8 @@ names = output3.incident;
           svg.append("text")
             .attr("dy", ".5em")
             .style('font-familly', 'Arial')
-            .attr('x', 900)
-            .attr('y', 100)
+            .attr('x', 800)
+            .attr('y', 300)
             .attr('font-size', 14)
             .attr("class","label")
             .style("fill", "darkOrange")
@@ -94,8 +94,8 @@ names = output3.incident;
          g1.selectAll('.label1').append("text")
          .attr("transform", function(d, i) {
      var d = arc.centroid(d);
-     d[0] *= 1.4;	//multiply by a constant factor
-     d[1] *= 1.4;	//multiply by a constant factor
+     d[0] *= 1.6;	//multiply by a constant factor
+     d[1] *= 1.6;	//multiply by a constant factor
      return "translate(" + d + ")";
    })
             .attr('text-anchor', 'middle')
@@ -109,6 +109,34 @@ function handleMouseOver(d, i) {
                  radius: radius * 2
                });
              }
+let g2 = svg.append('svg').append('g');
+g2.append("text")
+.text("Incident Category")
+.attr('x', '980')
+.attr('y', '15')
+.attr('font-size', '10')
+.attr('font-weight', 'bold')
+
+for(let j =0; j< 7; j++){
+g2.append("g").append('rect')
+.attr("fill", function(d){return colorScale(j)} )
+.attr('width', '10')
+.attr('height', '10')
+.attr('x', '980')
+.attr('y', function(d){
+  return (20 + j*14);
+});
+g2.append("text")
+.text(function(d){
+  return output3.incident[j];
+}).style('font-familly', 'Arial')
+.style('font-size', 10)
+.style("fill", "black")
+.attr('x', '998')
+.attr('y', function(d){
+  return (29 + j*14)
+});
+}
 
 }
 LoadingData3();

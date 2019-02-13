@@ -123,11 +123,8 @@
             <map to='#5fbb68'>
               <bucket>&quot;Other&quot;</bucket>
             </map>
-            <map to='#64cdcc'>
-              <bucket>&quot;Robbery-Burglary-Theft&quot;</bucket>
-            </map>
             <map to='#91dcea'>
-              <bucket>&quot;Traffic Violation Arrest&quot;</bucket>
+              <bucket>&quot;Drug and Liquor&quot;</bucket>
             </map>
             <map to='#a4a4d5'>
               <bucket>&quot;Trespass and Loitering&quot;</bucket>
@@ -150,8 +147,11 @@
             <map to='#f9d23c'>
               <bucket>&quot;Larency&quot;</bucket>
             </map>
+            <map to='#f9d23c'>
+              <bucket>&quot;Robbery-Burglary-Theft&quot;</bucket>
+            </map>
             <map to='#fd6f30'>
-              <bucket>&quot;Drug and Liquor&quot;</bucket>
+              <bucket>&quot;Traffic Violation Arrest&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -191,7 +191,6 @@
                 <groupfilter function='member' level='[none:Incident Category:nk]' member='&quot;Familly Offenses&quot;' />
                 <groupfilter function='member' level='[none:Incident Category:nk]' member='&quot;Missing Person&quot;' />
                 <groupfilter function='member' level='[none:Incident Category:nk]' member='&quot;Prostitustion&quot;' />
-                <groupfilter function='member' level='[none:Incident Category:nk]' member='&quot;Traffic Violation Arrest&quot;' />
                 <groupfilter function='member' level='[none:Incident Category:nk]' member='&quot;Trespass and Loitering&quot;' />
               </groupfilter>
             </groupfilter>
@@ -257,26 +256,7 @@
                 <value>0.19996000799840033</value>
               </tuple>
             </tuple-reference>
-            <label-position x='83' y='74' />
-          </mark-label>
-          <mark-label id='1'>
-            <tuple-reference>
-              <tuple-descriptor>
-                <pane-descriptor>
-                  <x-fields />
-                  <y-fields />
-                </pane-descriptor>
-                <columns>
-                  <field>[federated.0jdbl441gqos681eqjgqn0w6o9zn].[none:Incident Category:nk]</field>
-                  <field>[federated.0jdbl441gqos681eqjgqn0w6o9zn].[pcto:sum:Incident Number:qk]</field>
-                </columns>
-              </tuple-descriptor>
-              <tuple>
-                <value>&quot;Larency&quot;</value>
-                <value>0.39122175564887024</value>
-              </tuple>
-            </tuple-reference>
-            <label-position x='-90' y='91' />
+            <label-position x='-100' y='6' />
           </mark-label>
           <mark-label id='2'>
             <tuple-reference>
@@ -354,6 +334,27 @@
             </tuple-reference>
             <label-position x='9' y='-46' />
           </mark-label>
+          <mark-label id='6'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0jdbl441gqos681eqjgqn0w6o9zn].[none:Incident Category:nk]</field>
+                  <field>[federated.0jdbl441gqos681eqjgqn0w6o9zn].[sum:Incident Number:qk]</field>
+                  <field>[federated.0jdbl441gqos681eqjgqn0w6o9zn].[pcto:sum:Incident Number:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Traffic Violation Arrest&quot;</value>
+                <value>165</value>
+                <value>0.016730886229973638</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='-47' y='43' />
+          </mark-label>
           <mark-label id='8'>
             <tuple-reference>
               <tuple-descriptor>
@@ -371,7 +372,7 @@
                 <value>0.15146970605878823</value>
               </tuple>
             </tuple-reference>
-            <label-position x='62' y='-71' />
+            <label-position x='74' y='67' />
           </mark-label>
         </mark-labels>
       </table>
@@ -400,6 +401,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
+            <card param='[federated.0jdbl441gqos681eqjgqn0w6o9zn].[none:Incident Category:nk]' type='filter' />
             <card pane-specification-id='0' param='[federated.0jdbl441gqos681eqjgqn0w6o9zn].[none:Incident Category:nk]' type='color' />
           </strip>
         </edge>

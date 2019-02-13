@@ -152,5 +152,7 @@ var DrawBarChart = function(){
         // .each(function(d, i, nodes) {
         //   console.log("Added bar for:", d);
         // });
+
+        
 };
 LoadingData();
