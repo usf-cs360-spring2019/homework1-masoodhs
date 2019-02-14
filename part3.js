@@ -27,8 +27,8 @@ DrawBarChart3();
 DrawBarChart3 = function(){
 let margin = {
   top:    15,
-  right:  35, // leave space for y-axis
-  bottom: 30, // leave space for x-axis
+  right:  35,
+  bottom: 30, 
   left:   40
 };
 let svg = d3.select("body").select("section:nth-child(4)").select("div").select("svg");
